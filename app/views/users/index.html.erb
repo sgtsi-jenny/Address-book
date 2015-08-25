@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Address Book</h1>
+<div id="content">
+<table border=1 cellpadding=0 cellpadding=0 bgcolor=#d9f1eb bordercolor=#FFFFFF>
+  <thead>
+    <tr>
+      <th>Name</th>
+      
+      
+      <th>Actions</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.fname + " " + user.mname + " " + user.lname%></td>      
+               
+        <td valign='top'>
+        <%= link_to(image_tag("edit_view.png", height: 30, width: 30, :title => "View"), user) %>
+        
+        <%= link_to(image_tag("edit_icon.png", height: 30, width: 30, :title => "Edit"), edit_user_path(user) ) %>        
+        
+        <%= link_to(image_tag("edit_delete.png", height: 30, width: 30, :title => "Destroy"),  user, method: :delete, data: { confirm: 'Are you sure?' }) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New User', new_user_path %>
+</div>
+<br><br><br><br><br><br>
+
